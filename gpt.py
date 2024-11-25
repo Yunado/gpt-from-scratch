@@ -193,6 +193,8 @@ class GPT(nn.Module):
 
 model = GPT()
 m = model.to(device)
+# print model paramters
+print(sum(p.numel() for p in m.parameters())/1e6, 'M parameters')
 
 # create an optimizer
 optimizer = torch.optim.AdamW(model.parameters(), lr=learning_rate)
